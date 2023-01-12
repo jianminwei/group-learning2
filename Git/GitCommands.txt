@@ -79,6 +79,12 @@ Git concepts: Modified, Staged, Commited
 
   git branch test1             ## create a new branch named test1
 
+  git branch (-m | -M) [<oldbranch>] <newbranch>
+
+  Note: With a -m or -M option, <oldbranch> will be renamed to <newbranch>. If <oldbranch> 
+        had a corresponding reflog, it is renamed to match <newbranch>, and a reflog entry 
+        is created to remember the branch renaming. If <newbranch> exists, -M must be 
+        used to force the rename to happen.
 
 9. Check out a branch
 
