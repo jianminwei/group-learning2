@@ -1,0 +1,166 @@
+
+Git concepts: Modified, Staged, Commited
+
+
+1. Initialize a git repository
+
+  git init
+
+2. Check status:
+
+  git status
+
+3. Add file to stage
+
+  git add file_name   ## add one file to stage.
+
+  git add -A          ## Add all files/changes to git
+
+  git add .           ## Add all files/changes to git, same as above
+
+4. Un-stage file (move the file back to modified)
+
+  git rm --cached file_name         ## unstage one file
+
+  git rm --cached *                 ## unstage all files back to modified 
+
+
+5. Commit:
+
+  git commit -m "some message"
+
+
+6. Check log:
+
+  git log
+
+  git log --oneline      ## Check log one line
+  
+  git log --graph --decorate --pretty=oneline --abbrev-commit   ## will put this long command in git config      
+
+  git tree  ## use the alias
+
+7. Git Config:
+
+  Normally after installing git, do these two config commands first:
+
+     git config user.name "fistName LastName"
+     git config user.email "YourEmailAddress"
+
+
+    a). List existing configuration.
+    
+        git config --global --list     ## this is to list all the global config, 
+                                       ##below are the output from this command.
+
+
+        user.name=Jianmin Wei
+        user.email=jianminwei1@gmail.com
+        alias.tree=log --graph --decorate --pretty=oneline --abbrev-commit
+        alias.st=status
+        alias.co=checkout
+        alias.cm=commit
+
+
+    b). Add configuration commands.
+    
+      git config --global user.name "Jianmin Wei"
+      git config --global user.email "jianminwei1@gmail.com"
+
+      ## Add new alias
+      git config --global alias.cm commit            
+      git config --global alias.tree "log --graph --decorate --pretty=oneline --abbrev-commit"
+      git config --global alias.st status
+      git config --global alias.co checkout
+      
+    c). You can add any alias you want. For exampe, you can add alias.mg for merge.
+
+8. Create a new branch
+
+  git branch test1             ## create a new branch named test1
+
+
+9. Check out a branch
+
+  git checkout DEV            ## check out to DEV branch (DEV is an existing branch)
+
+  git checkout -b 'issue-5'   ## check out and create branch in one command 
+                              ##('issue-5' is not an existing branch).  
+
+  git checkout 1e295f9 -b feature_branch   ## check out and create "feature_branch" 
+                                           ## based on a history commit point "1e295f9"
+      
+
+9. Merge a branch, for example, merge master with DEV.
+
+
+    There are two ways to merge a branch.
+
+    a)First way:
+    
+        git merge DEV     		##  you have to go to master branch to merge with DEV.
+        
+        This is the 1st way. You have to check out to the branch (master) 
+        that you want to merge with another branch (DEV).
+        
+    b)Second way:
+        
+        git fetch . DEV:master	##  merge master with DEV (no need to go to master first)
+        
+        
+        This is the 2nd way. You don't need to check out to master. 
+        You can merge master with DEV right in the DEV branch.
+        
+
+    c). Normally after you merge master with DEV, you push it to remote 
+        (assume you have linked your local repository with remote Github).
+    
+        git push -u origin master       ## first time push
+        
+        git push                        ## subsequent push no need to have "-u origin master"
+                                        ## but you have to be in the master branch. 
+                                        ## If you are not in the master branch, 
+                                        ## use the full format "git push -u origin master"
+
+        
+10. .gitignore file    ### this file tells git what to ignore (untracked files)
+
+
+11. Add GitHub to an existing local repository from the command line
+
+    a) Create an empty repository on Github. In this example, I 
+       created "git-testing" repository on my Github account.
+
+    b). Run bellow commands.
+
+    git remote add origin git@github.com:jianminwei/git-testing.git
+    git push -u origin master
+
+
+    Note: replace "jianminwei/git-testing.git" with your github account and repository name.
+          Also, master is an existing branch in your local repository.
+
+
+12. Clone an existing Github repository to your local
+
+    git clone git@github.com:jianminwei/group-learning.git
+    
+
+
+13. List your existing remote
+
+    git remote -v
+    
+    
+14. How to change a remote Git repository URL
+
+    git remote set-url origin git@github.com:muthuannamalai12/tutorialspoint.git
+    
+    
+    There are two arguments in the command: the name of the remote that already exists (in our case origin) 
+    as well as a new remote URL (in our case git@github.com:muthuannamalai12/tutorialspoint.git).
+
+    Once you have changed your remote repository URL to https, you will be asked to enter your username 
+    and password to use git fetch, git pull, or git push.
+
+

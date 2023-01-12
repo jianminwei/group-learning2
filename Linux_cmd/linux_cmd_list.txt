@@ -1,0 +1,201 @@
+Below list contains the most useful Linux commands. You can use them in "git bash" on Windows, Terminal on MacOS, and of course in any Linux environment.
+
+
+0. echo 
+
+   echo anything to the screen
+
+   echo "hello world"
+   echo "hello world" > tmp1.txt    ### echo to a file, replace tmp1.txt original content.
+   echo "hello world" >> tmp1.txt   ### append to tmp1.txt
+
+1. ls
+	description: list files and directories.
+
+	ls -a
+	ls -l
+	ls -t
+	ls -lt
+	ls -ltr
+	ls *.sgf
+	ls *   	### list everything
+
+1.1 	
+
+	clear	### clear the terminal
+
+2. pwd 
+	print working directory.
+
+3. cd
+	change directory.
+	
+	cd directory_name   	### change to directory_name directory.
+	cd ..			### change to parent directory
+	cd ../..		### change to parent/parent directory
+	cd -			### change to previous directory
+	cd ~			### go to your home directory.
+	cd INC*			### go to a directory named with INC*
+
+4. cat
+	Display file content on screen (STDOUT).
+
+	cat file1		 ### display file1
+	cat *.txt		 ### display all files end with .txt file name
+	cat file1 file2 file3    ### display file1 file2 file3 together
+	cat *.sgf > all_sgf.sgf  ### output the result to all_sgf.sgf file.
+	cat *.sgf >> all_sgf.sgf ### append the result to all_sgf.sgf file.
+
+5. cp
+	Copy file
+
+	cp file1 file2		### copy file1 to file2
+
+6. mv
+	Rename(move) a file
+	
+	mv file1 file2		### rename (move) file1 to file2
+
+7. rm
+	Remove file (delete a file)
+
+	rm file1		### remove (delete) file1	
+
+8. mkdir
+	Make new directory
+
+	mkdir dir1		### create a new directory (folder) dir1
+
+9. rmdir
+	Remove directory
+
+	rmdir dir1		### remove dir1 directory
+	rmdir -rf dir1    	### remove directory recusively with contents,
+				### be very careful with this command.
+
+10. touch
+	
+	touch file1		### change its modified time.
+
+	touch file1		### when file1 is not existing, 
+				### it will create a empty file1.
+
+
+Jan 3rd ends here
+=======================================================================
+10.1 Linux `` usage
+
+	echo `date`   ### echo date command output to the screen.
+	echo `ls`     ### echo ls output to the screen
+	echo `cat tmp1.txt`   ### echo cat tmp1.txt to the screen.
+
+10.2 Linux pipe concept.
+
+	echo "hello world" | cat   ### echo's output as cat input
+	echo `date` | cat	   ### echo `date` output as cat input
+
+
+
+11. grep
+
+	Search a file content line by line.
+
+	grep "hello" file1    ## display lines containing hello in file1.
+
+
+Jan 4th ends here
+=======================================================================
+
+
+
+    Regular Expression
+
+    Symbol	Descriptions
+    ------  -----------------------
+    .	replaces any character
+    ^	matches start of string
+    $	matches end of string
+    \	Represent special characters
+    ()	Groups regular expressions
+    *	matches up zero or more times the preceding character
+    +Matches one or more occurrence of the previous character
+    ?	Matches zero or one occurrence of the previous character
+
+
+    {n}	Matches the preceding character appearing ‘n’ times exactly
+    {n,m}	Matches the preceding character appearing ‘n’ times but not more than m
+    {n, }	Matches the preceding character only when it appears ‘n’ times or more
+
+
+
+    Try these commands:
+    
+    echo aabbb | grep -E "aa"
+    echo aabbb | grep -E "bbb"
+    echo aabbb | grep -E "^bbb"
+    echo aabbb | grep -E "bbb$"
+    echo aabbb | grep -E "aa{1}"
+    echo aabbb | grep -E "aa{2}"
+    echo aaaabbb | grep -E "aa{2}"
+    echo aabb | grep -E "x*"
+    echo aabb | grep -E "x+"
+    
+    
+
+12. sed
+
+	Steam editor. This command can be very useful if you want to change 
+        some file content in a automated way.
+
+	echo "Bash Scripting Language" | sed 's/Bash/Perl/'	     ### replace Bash by Perl
+	echo "Jan 7th" | sed 's/Jan/Feb/'		             ### replace Jan by Feb
+	echo "Jan 7th" | sed 's/Jan/Feb/' > tmp2.txt          ### replace Jan by Feb and save to tmp2.txt
+    
+    echo "1234abcd" | sed 's/[0-9]*/xxxx/'                   ### you can use regulary expressions
+    echo "good day" | sed 's/^/It is a/'
+    
+    
+    
+Jan 7th ends here
+=======================================================================
+
+
+13. find
+	find files
+
+	find . -name "*.txt" -print
+	find . -name "*.txt" -exec grep "sometext" {} \;         ## this command is super useful
+
+
+14. df
+	Disk free. To display free space for a disk drive.
+
+15. head.
+	Display first few lines of a file
+
+	head -5 fileName
+	head fileName
+
+16. tail
+	Display last few lines of a file
+
+	tail -8 fileName
+	tail fileName
+	tail -f fileName   ## this is very useful when a file is being written and keep growing.
+
+17. diff
+	Compare two files
+
+	diff fileName1 fileName2
+18. echo
+	Echo something to the screen.
+
+	echo "hello"
+	echo `date`
+	
+19. Linux pipeline concepts, STDIN, STDOUT, STDERR
+
+20. Learn vi
+
+21. Misc. commands:
+   whoami, groups
