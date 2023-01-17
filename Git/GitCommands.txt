@@ -95,7 +95,16 @@ Git concepts: Modified, Staged, Commited
 
   git checkout 1e295f9 -b feature_branch   ## check out and create "feature_branch" 
                                            ## based on a history commit point "1e295f9"
-      
+ 
+
+  ### checkout remote branch
+  git fetch origin
+  
+  git co origin/Kyle-Hw1     ### this put you in a detached state to just look at remote code.
+
+  git co -b Kyle-Hw1 origin/Kyle-Hw1
+
+     
 
 9. Merge a branch, for example, merge master with DEV.
 
