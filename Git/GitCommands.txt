@@ -158,6 +158,11 @@ Git concepts: Modified, Staged, Commited
 
   git remote show origin                ## this list out all the local branches tracked 
                                         ## with remote branches.
+
+9.4 Untrack a remote branch
+
+  git branch -d -r origin/remote_branch_name  ##This will not delete the branch on the remote
+                                              ##This simply untrack the remote branch.
         
 10. .gitignore file    ### this file tells git what to ignore (untracked files)
 
