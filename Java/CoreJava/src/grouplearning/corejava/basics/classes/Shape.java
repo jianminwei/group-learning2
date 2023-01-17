@@ -13,12 +13,7 @@ public class Shape {
     private double area;
     private double perimeter;
 
-    public Shape(String nameofShape, int numberOfSides, int area, int perimeter) {
-        this.nameOfShape = nameofShape;
-        this.numberOfSides = numberOfSides;
-        this.area = area;
-        this.perimeter = perimeter;
-    }
+
 
     public String getNameOfShape() {
         return nameOfShape;
