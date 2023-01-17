@@ -101,6 +101,7 @@ Git concepts: Modified, Staged, Commited
   git fetch origin
   
   git co origin/Kyle-Hw1     ### this put you in a detached state to just look at remote code.
+                             ### You should use this when just look at the code.
 
   git co -b Kyle-Hw1 origin/Kyle-Hw1
 
