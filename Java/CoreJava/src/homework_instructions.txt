@@ -1,0 +1,9 @@
+
+Homework for 2023-01-16 Lesson - Java Interface
+------------------------------------------------------------------------------------------------------------------------
+
+1. Define a "Creature" interface. It has makeSound() method. This method return String.
+2. Define three different creature classes on earth. All of them need to implement the Creature interface.
+3. Create a "CreatureTest" class to test your stuff.
+
+Follow the "standard_git_procedures.txt" to push your homework to remote.
