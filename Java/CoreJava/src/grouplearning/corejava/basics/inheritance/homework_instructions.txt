@@ -1,0 +1,9 @@
+Homework:
+
+1. Define Shape ancestor class
+2. Define specific shape (circle, square, etc) sub-class.
+
+Note: do the development in your DEV branch. When you finish, stage and commit.
+    Then:
+     git co -b Kyle-homework-01
+     git push -u origin Kyle-homework-01

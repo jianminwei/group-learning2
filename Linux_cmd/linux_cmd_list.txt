@@ -167,6 +167,9 @@ Jan 7th ends here
 	find . -name "*.txt" -exec grep "sometext" {} \;         ## this command is super useful
 
 
+Jan 16th ends here
+=======================================================================
+
 14. df
 	Disk free. To display free space for a disk drive.
 

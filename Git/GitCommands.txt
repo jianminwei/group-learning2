@@ -86,6 +86,16 @@ Git concepts: Modified, Staged, Commited
         is created to remember the branch renaming. If <newbranch> exists, -M must be 
         used to force the rename to happen.
 
+8.1 To display all the branches
+
+  git branch -a
+
+
+8.2 To Delete a branch
+
+  git branch -d branch_name
+
+
 9. Check out a branch
 
   git checkout DEV            ## check out to DEV branch (DEV is an existing branch)
@@ -95,9 +105,19 @@ Git concepts: Modified, Staged, Commited
 
   git checkout 1e295f9 -b feature_branch   ## check out and create "feature_branch" 
                                            ## based on a history commit point "1e295f9"
-      
+ 
 
-9. Merge a branch, for example, merge master with DEV.
+  ### checkout remote branch
+  git fetch origin
+  
+  git co origin/Kyle-Hw1     ### this put you in a detached state to just look at remote code.
+                             ### You should use this when just look at the code.
+
+  git co -b Kyle-Hw1 origin/Kyle-Hw1
+
+     
+
+9.1 Merge a branch, for example, merge master with DEV.
 
 
     There are two ways to merge a branch.
@@ -118,16 +138,31 @@ Git concepts: Modified, Staged, Commited
         You can merge master with DEV right in the DEV branch.
         
 
-    c). Normally after you merge master with DEV, you push it to remote 
+9.2  git push
+ 
+        Normally after you merge master with DEV, you push it to remote 
         (assume you have linked your local repository with remote Github).
     
         git push -u origin master       ## first time push
         
         git push                        ## subsequent push no need to have "-u origin master"
                                         ## but you have to be in the master branch. 
+                                   
+
                                         ## If you are not in the master branch, 
                                         ## use the full format "git push -u origin master"
+                                        ## Also, if you have multiple remote branches tracked,
+                                        ## You should use "git push -u origin master" format.
 
+9.3 List all the tracked branches
+
+  git remote show origin                ## this list out all the local branches tracked 
+                                        ## with remote branches.
+
+9.4 Untrack a remote branch
+
+  git branch -d -r origin/remote_branch_name  ##This will not delete the branch on the remote
+                                              ##This simply untrack the remote branch.
         
 10. .gitignore file    ### this file tells git what to ignore (untracked files)
 
