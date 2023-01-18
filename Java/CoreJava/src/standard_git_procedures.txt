@@ -19,6 +19,12 @@ Here are the standard steps we can follow for doing Git stuff.
 
     git merge master
 
+    Note: You may get a Git VI window saying "Merge master branch into your DEV branch", do the following sequence.
+          a. hit ESC key
+          b. hit : key
+          c. wq   (then enter)
+          
+
 6. Do your homework in your DEV branch.
 
 7. After your homework is done, commit it to your DEV branch.
