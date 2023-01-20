@@ -1,9 +1,27 @@
 
-Homework for 2023-01-16 Lesson - Java Interface
+2023-01-16 Lesson
 ------------------------------------------------------------------------------------------------------------------------
+Topics: Java Interface
+
+Homework:
 
 1. Define a "Creature" interface. It has makeSound() method. This method return String.
 2. Define three different creature classes on earth. All of them need to implement the Creature interface.
 3. Create a "CreatureTest" class to test your stuff.
 
 Follow the "standard_git_procedures.txt" to push your homework to remote.
+
+
+2023-01-20 Lesson
+------------------------------------------------------------------------------------------------------------------------
+Topics: Introduce linux vi; access modifier, property vs variable, property scope, variable scope, property hosting.
+
+Homework:
+
+Define a class Truck that has private, protected and public properties. Define a class TruckTest with psvm main method.
+In the main method, define a Truck variable and instantiate it. Try to access all private, protected and public properties
+directly (not through getters). You will get error whey you try to access private and protected properties directly.
+
+Define a class JumboTruck that inherits from Truck class, define a method getTruckInfo(). In this method,
+Try to access ancestor's private, protected and public properties directly. You would get error whey trying to access
+private properties.

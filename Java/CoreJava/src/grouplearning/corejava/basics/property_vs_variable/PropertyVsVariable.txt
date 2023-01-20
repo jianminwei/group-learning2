@@ -1,0 +1,10 @@
+
+1. Properties belong to class. They are hoisted (means you can define them anywhere, even after where they are used).
+
+2. Properties scope is defined by access modifier.
+
+3. Variables belong to function (method).
+
+4. Variables are function / block scoped; and they are not hoisted.
+
+5. Because variables are function / block scoped, they don't need access modifier; Their maximum scope is inside the function or block.
