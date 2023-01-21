@@ -26,3 +26,30 @@ directly (not through getters). You will get error whey you try to access privat
 Define a class JumboTruck that inherits from Truck class, define a method getTruckInfo(). In this method,
 Try to access ancestor's private, protected and public properties directly. You would get error whey trying to access
 private properties.
+
+
+2023-01-23 Lesson
+------------------------------------------------------------------------------------------------------------------------
+Topics:
+    Learn linux vi search, cw, c$, copy, paste
+    static
+    import
+    abstract class
+    exception
+
+Homework:
+    Define a class named Utility. Define two public static methods:
+
+        addInt(int i1, int i2)
+        multiInt(int i1, int i2)
+
+    These two methods will do the math addition and multiplication and return integers.
+
+    Define a UtilityTest class and main() method. In the main(), directly ues Utility.addInt()
+    to add two number and print the result out; and use Utility.multiInt() to multiply two numbers and
+    print the result out.
+
+    And remember this, you can directly use static method and property of a class without instantiate the class.
+
+
+
