@@ -24,6 +24,9 @@ public class AnimalTest {
         /**
          * This is new way to loop through collections and arrays
          */
+        for( Animal a : arr) {
+            System.out.println(a.move());
+        }
 
     }
 }

@@ -15,6 +15,7 @@ Follow the "standard_git_procedures.txt" to push your homework to remote.
 2023-01-20 Lesson
 ------------------------------------------------------------------------------------------------------------------------
 Topics: Introduce linux vi; access modifier, property vs variable, property scope, variable scope, property hosting.
+        method overloading, method overriding; default class no argument constructor;
 
 Homework:
 
