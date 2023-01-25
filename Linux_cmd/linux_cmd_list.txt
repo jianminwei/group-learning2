@@ -200,5 +200,39 @@ Jan 16th ends here
 
 20. Learn vi
 
+   Vi has 3 modes: Input Mode, Browsing Mode, Command Mode.
+
+      vi tmp1.txt   ## edit tmp1.txt. If tmp1.txt is not existing, it will create a tmp1.txt
+                    ## If tmp1.txt is existing, it will edit the file.
+
+      When vi just started, it is in Browsing Mode.
+      From Browsing Mode, hit letter i or o get into input mode.
+      From input mode, hit ESC key, get into Browsing mode.
+      From Browsing mode, hit : , get into command mode.
+
+      In browsing mode, 
+         j k h l  move the cursor down, up, left, right.
+         Crtl + u, move the screen up
+         Crtl + d, move the screen down
+         $, move the cursor to the beginning of the line
+         0, move the cursor to the begginning of the line
+         w, move to the next word
+
+      In insert mode, just like any editor, keep typing.
+         hit ESC, back to browsing mode.
+
+         In Browsing mode:
+         i, that will put you in the insert mode right there.
+         o, get into insert mode from next line.
+
+      In command mode
+         q,  quit (file is not touched).
+         q!, quit (even file is touched).
+         w,  write the current content to the file (to prevent loss)
+         wq, write the file and quit.
+
+
+                      
+
 21. Misc. commands:
    whoami, groups

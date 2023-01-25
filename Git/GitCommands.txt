@@ -95,6 +95,8 @@ Git concepts: Modified, Staged, Commited
 
   git branch -d branch_name
 
+  git push origin --delete Matt-HWDemo2   ### delete a remote branch
+
 
 9. Check out a branch
 
@@ -108,7 +110,7 @@ Git concepts: Modified, Staged, Commited
  
 
   ### checkout remote branch
-  git fetch origin
+  git fetch origin           ### don't forget this, you need fetch the info from remote first.
   
   git co origin/Kyle-Hw1     ### this put you in a detached state to just look at remote code.
                              ### You should use this when just look at the code.
