@@ -109,15 +109,27 @@ Git concepts: Modified, Staged, Commited
                                            ## based on a history commit point "1e295f9"
  
 
+  ##############################
   ### checkout remote branch
+  ##############################
+
   git fetch origin           ### don't forget this, you need fetch the info from remote first.
   
   git co origin/Kyle-Hw1     ### this put you in a detached state to just look at remote code.
                              ### You should use this when just look at the code.
 
-  git co -b Kyle-Hw1 origin/Kyle-Hw1
+  
+  git co -b Kyle-Hw1 origin/Kyle-Hw1    ### This check out is different from above. It creates a
+                                        ### local branch Kyle-Hw1, and track the remote branch. 
 
-     
+
+  ### Below is another command same as above, with the output displayed. you can see
+  ### the local branch tracking the corresponding remote branch.
+  
+  $ git co -b lesson-3  origin/lesson-3
+  Switched to a new branch 'lesson-3'
+  Branch 'lesson-3' set up to track remote branch 'lesson-3' from 'origin'.
+   
 
 9.1 Merge a branch, for example, merge master with DEV.
 

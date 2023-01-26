@@ -31,7 +31,7 @@ private properties.
 2023-01-23 Lesson
 ------------------------------------------------------------------------------------------------------------------------
 Topics:
-    Learn linux vi search, cw, c$, copy, paste
+    Learn linux vi search, cw, c$, copy, paste, repeating last command
     static
     import
     abstract class
