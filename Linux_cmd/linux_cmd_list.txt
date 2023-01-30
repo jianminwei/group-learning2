@@ -232,6 +232,29 @@ Jan 16th ends here
          wq, write the file and quit.
 
 
+      Search
+         In browsing mode, type / key, that will take you to the last line, 
+         then type in the word you want to search, and hit Enter.
+
+         Continue to find next word forward, hit n
+         Continue to find next word backward, hit N
+
+      Copy/Paste in vi
+
+         In browsing mode, move your cursor to any line you want to copy, type yy.
+         The line is in your clipboard. 
+         Move the cursor to any line where you want to paste the clipboard below, type p.
+
+         If you want to copy n lines to the clipboard, type nyy, e.g, 5yy, that will copy 
+         5 lines to the clipboard.
+
+       Change a word, or c$
+         In browsing mode, move you cursor to the word you want to change, type cw, then 
+         type the new word, hit ESC. 
+
+       Repeat last command .
+         Whatever last operation you performed, hit . , it will repeat that operation.
+
                       
 
 21. Misc. commands:

@@ -31,7 +31,7 @@ private properties.
 2023-01-23 Lesson
 ------------------------------------------------------------------------------------------------------------------------
 Topics:
-    Learn linux vi search, cw, c$, copy, paste
+    Learn linux vi search, cw, c$, copy, paste, repeating last command
     static
     import
     abstract class
@@ -50,6 +50,29 @@ Homework:
     print the result out.
 
     And remember this, you can directly use static method and property of a class without instantiate the class.
+
+
+2023-01-29 Lesson
+------------------------------------------------------------------------------------------------------------------------
+Topics:
+    Learn linux commands: head, tail, diff
+    Java Generic, Collections
+
+Homework:
+    Define a Cat class that has color and age properties; define setters and getters for the class.
+
+    Define a CatTest class and main method. Do the following:
+
+        1. In the main method, define a cats <Cat> type ArrayList; also define a blackCats <Cat> type ArrayList.
+        2. Define a Random variable, Random random = new Random().
+        3. Do a "for" loop 15 times, within each loop, instantiate a new Cat; set the cat age same as the loop integer,
+           meaning the first loop 1 year old, 2nd loop 2 year old etc. Set the cat color black if the
+           random.nextInt(100) < 50; otherwise set to white color. Put the cat to the cats ArrayList.
+        4. Use foreach loop to loop through cats ArrayList, when the cat is black, put it into the blackCats ArrayList.
+        5. Use a foreach loop to loop through blackCats ArrayList, and print out the cat age and cat color.
+
+    Run the CatTest when complete, you should see about 7 or 8 black cats printed out.
+
 
 
 
