@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  * Different people have different interpretation of Abstraction.
- * To me, abstraction is to split a complex process into small simple
+ * To me, abstraction is to decompose a complex process into small simple
  * unit of works; and hide the complexity to the outside users.
  *
  * For this Engine example, all users need to know is to call startEngine()

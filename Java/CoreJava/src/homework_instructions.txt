@@ -75,4 +75,27 @@ Homework:
 
 
 
+2023-01-30 Lesson
+------------------------------------------------------------------------------------------------------------------------
+Topics:
+    Learn linux commands: review linux commands.
+    Java stream, Object-Oriented Concepts in Java.
 
+Homework:
+
+    Let's do the same homework above using stream and filter.
+
+    Define a Cat class that has color and age properties; define setters and getters for the class.
+
+    Define a CatTest class and main method. Do the following:
+
+        1. In the main method, define a cats <Cat> type ArrayList; also define a blackCats <Cat> type ArrayList.
+        2. Define a Random variable, Random random = new Random().
+        3. Do a "for" loop 15 times, within each loop, instantiate a new Cat; set the cat age same as the loop integer,
+           meaning the first loop 1 year old, 2nd loop 2 year old etc. Set the cat color black if the
+           random.nextInt(100) < 50; otherwise set to white color. Put the cat to the cats ArrayList.
+        4. Use foreach loop to loop through cats ArrayList, use stream to filter black cat. And use collector to
+           put it into the blackCats ArrayList.
+        5. Use stream of blackCats ArrayList, and print out the cat age and cat color with forEach() in the stream.
+
+    Run the CatTest when complete, you should see about 7 or 8 black cats printed out.

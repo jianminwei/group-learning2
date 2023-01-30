@@ -81,8 +81,6 @@ Below list contains the most useful Linux commands. You can use them in "git bas
 				### it will create a empty file1.
 
 
-Jan 3rd ends here
-=======================================================================
 10.1 Linux `` usage
 
 	echo `date`   ### echo date command output to the screen.
@@ -103,9 +101,7 @@ Jan 3rd ends here
 	grep "hello" file1    ## display lines containing hello in file1.
 
 
-Jan 4th ends here
-=======================================================================
-
+11.1 Regular Expression
 
 
     Regular Expression
@@ -155,10 +151,6 @@ Jan 4th ends here
     echo "good day" | sed 's/^/It is a/'
     
     
-    
-Jan 7th ends here
-=======================================================================
-
 
 13. find
 	find files
@@ -167,8 +159,6 @@ Jan 7th ends here
 	find . -name "*.txt" -exec grep "sometext" {} \;         ## this command is super useful
 
 
-Jan 16th ends here
-=======================================================================
 
 14. df
 	Disk free. To display free space for a disk drive.
@@ -190,6 +180,7 @@ Jan 16th ends here
 	Compare two files
 
 	diff fileName1 fileName2
+
 18. echo
 	Echo something to the screen.
 
