@@ -12,6 +12,16 @@ public class StreamDemo {
         list.add("pretty");
         list.add("cool");
 
+        /**
+            function (x) = {
+                System.out.println(x);
+            }
+
+            (x) -> {
+                System.out.println(x);
+            }
+
+         */
         list.stream().forEach(e -> System.out.println(e));
 
         /**
