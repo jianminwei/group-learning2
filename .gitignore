@@ -6,3 +6,6 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+
+### ignore maven target folder
+target/

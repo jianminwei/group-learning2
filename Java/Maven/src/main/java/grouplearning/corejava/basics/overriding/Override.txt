@@ -1,0 +1,6 @@
+
+In Java, if you implement the same method in sub-classes, it's called override.
+So override only happens in sub-classes.
+
+You can think of Override is to define your own method in the sub-class. Or you override
+the same method behavior; you define your own method behavior.

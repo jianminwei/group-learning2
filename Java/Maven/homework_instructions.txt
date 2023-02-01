@@ -1,0 +1,101 @@
+
+2023-01-16 Lesson
+------------------------------------------------------------------------------------------------------------------------
+Topics: Java Interface
+
+Homework:
+
+1. Define a "Creature" interface. It has makeSound() method. This method return String.
+2. Define three different creature classes on earth. All of them need to implement the Creature interface.
+3. Create a "CreatureTest" class to test your stuff.
+
+Follow the "standard_git_procedures.txt" to push your homework to remote.
+
+
+2023-01-20 Lesson
+------------------------------------------------------------------------------------------------------------------------
+Topics: Introduce linux vi; access modifier, property vs variable, property scope, variable scope, property hosting.
+        method overloading, method overriding; default class no argument constructor;
+
+Homework:
+
+Define a class Truck that has private, protected and public properties. Define a class TruckTest with psvm main method.
+In the main method, define a Truck variable and instantiate it. Try to access all private, protected and public properties
+directly (not through getters). You will get error whey you try to access private and protected properties directly.
+
+Define a class JumboTruck that inherits from Truck class, define a method getTruckInfo(). In this method,
+Try to access ancestor's private, protected and public properties directly. You would get error whey trying to access
+private properties.
+
+
+2023-01-23 Lesson
+------------------------------------------------------------------------------------------------------------------------
+Topics:
+    Learn linux vi search, cw, c$, copy, paste, repeating last command
+    static
+    import
+    abstract class
+    exception
+
+Homework:
+    Define a class named Utility. Define two public static methods:
+
+        addInt(int i1, int i2)
+        multiInt(int i1, int i2)
+
+    These two methods will do the math addition and multiplication and return integers.
+
+    Define a UtilityTest class and main() method. In the main(), directly ues Utility.addInt()
+    to add two number and print the result out; and use Utility.multiInt() to multiply two numbers and
+    print the result out.
+
+    And remember this, you can directly use static method and property of a class without instantiate the class.
+
+
+2023-01-29 Lesson
+------------------------------------------------------------------------------------------------------------------------
+Topics:
+    Learn linux commands: head, tail, diff
+    Java Generic, Collections
+
+Homework:
+    Define a Cat class that has color and age properties; define setters and getters for the class.
+
+    Define a CatTest class and main method. Do the following:
+
+        1. In the main method, define a cats <Cat> type ArrayList; also define a blackCats <Cat> type ArrayList.
+        2. Define a Random variable, Random random = new Random().
+        3. Do a "for" loop 15 times, within each loop, instantiate a new Cat; set the cat age same as the loop integer,
+           meaning the first loop 1 year old, 2nd loop 2 year old etc. Set the cat color black if the
+           random.nextInt(100) < 50; otherwise set to white color. Put the cat to the cats ArrayList.
+        4. Use foreach loop to loop through cats ArrayList, when the cat is black, put it into the blackCats ArrayList.
+        5. Use a foreach loop to loop through blackCats ArrayList, and print out the cat age and cat color.
+
+    Run the CatTest when complete, you should see about 7 or 8 black cats printed out.
+
+
+
+2023-01-30 Lesson
+------------------------------------------------------------------------------------------------------------------------
+Topics:
+    Learn linux commands: review linux commands.
+    Java stream, Object-Oriented Concepts in Java.
+
+Homework:
+
+    Let's do the same homework above using stream and filter.
+
+    Define a Cat class that has color and age properties; define setters and getters for the class.
+
+    Define a CatTest class and main method. Do the following:
+
+        1. In the main method, define a cats <Cat> type ArrayList; also define a blackCats <Cat> type ArrayList.
+        2. Define a Random variable, Random random = new Random().
+        3. Do a "for" loop 15 times, within each loop, instantiate a new Cat; set the cat age same as the loop integer,
+           meaning the first loop 1 year old, 2nd loop 2 year old etc. Set the cat color black if the
+           random.nextInt(100) < 50; otherwise set to white color. Put the cat to the cats ArrayList.
+        4. Use foreach loop to loop through cats ArrayList, use stream to filter black cat. And use collector to
+           put it into the blackCats ArrayList.
+        5. Use stream of blackCats ArrayList, and print out the cat age and cat color with forEach() in the stream.
+
+    Run the CatTest when complete, you should see about 7 or 8 black cats printed out.

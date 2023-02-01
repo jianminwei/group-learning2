@@ -1,0 +1,51 @@
+
+Here are the standard steps we can follow for doing Git stuff.
+
+1. After every lesson, Jay will push the things just taught at that lesson from his local into remote master branch.
+
+2. Normally, there will be a new homework in the "homework_instruction.txt" file for that lesson.
+
+3. Matthew and Kyle do a pull to sync up their local master with remote master.
+
+    git co master
+
+    git pull
+
+4. After you sync up local master with remote master, check out to your DEV branch.
+
+    git co Matt-DEV
+
+5. Merge your DEV branch with your local master.
+
+    git merge master
+
+    Note: You may get a Git VI window saying "Merge master branch into your DEV branch", do the following sequence.
+          a. hit ESC key
+          b. hit : key
+          c. wq   (then enter)
+          
+
+6. Do your homework in your DEV branch.
+
+7. After your homework is done, commit it to your DEV branch.
+
+    git st
+
+    git add .
+
+    git cm -m "Some message about your homework"
+
+    git tree
+
+8. Create a new homework branch based on your just committed DEV branch.
+
+    git co -b Matt-Hw99
+
+    Note: Hw99 is a sequence placeholder, you can have Hw1, Hw2, Hw3, etc when you create more homework branches.
+
+9. Push your new homework branch to remote.
+
+    git push origin Matt-Hw99
+
+10. Next lesson, we will repeat the steps from 1 to 9.
+

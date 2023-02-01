@@ -1,0 +1,44 @@
+
+How to create a Maven project:
+==============================
+
+1. Create an empty maven project by following
+
+    a) select menu  File -> New -> Project...
+    b) In the New Project window, select "Maven" from the left pane, and click Next button
+    c) Choose a folder in the Location: dropdown
+    d) Give a project name in the "Name:" input
+    e) Expend the "Artifact Coordinates"
+
+        For "GroupId:", fill anything you like, for example, org.grouplearning
+        For "ArtifactId:", fill anything you like, for example, java-logging
+        For "Version:" , you can keep the default, or you give any version you want.
+
+    f) Click Finish button. A new Maven project will be created.
+
+2). pom.xml (Project Object Model) is Maven file to manage the project dependencies and build info.
+
+3). Open pom.xml file, click any empty space under </properties>, type <, then hit Ctrl + Space, it should pop up
+    some option, select <dependencies>, and hit Tab key
+
+    Or you can simply type:
+
+        <dependencies>
+
+        </dependencies>
+
+4). Add following <dependency> within <dependencies>. You can use copy paste to add it. It should look like below when complete
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.5.2</version>
+            <scope>test</scope>
+        </dependency>
+
+5). Right click anywhere in the "pom.xml" editor, select "Maven", then "Reload Project" from the popup
+    menu. You should see the "junit" libraries on the left "Project Pane" under "External Libraries".
+
+
+6)  Note: After copy/paste all the grouplearning corejava code here. I have to do a Maven clean and compile. Otherwise
+    runtime error.
