@@ -42,3 +42,89 @@ How to create a Maven project:
 
 6)  Note: After copy/paste all the grouplearning corejava code here. I have to do a Maven clean and compile. Otherwise
     runtime error.
+
+
+
+
+Junit Assertion Methods
+==============================
+
+    Assert Method           What It Does
+    -------------           -------------------------------------------------------
+    assertTrue              Assert that condition is true
+    assertFalse             Assert that condition is false
+    assertNull              Assert that object is null
+    assertNotNull           Assert that object is not null
+    assertEquals            Assert that expected and actual are equal
+    assertNotEquals         Assert that expected and actual are not equal
+    assertArrayEquals       Assert that expected and actual arrays are equals
+    assertSame              Assert that expected and actual refer to the same object
+    assertNotSame           Assert that expected and actual do not refer to the same object
+
+
+
+    Assert Method Overloading
+    ---------------------------------------------------------------------------------------
+
+    Each assertXXX method above provided by JUnit has at least three overloaded methods.
+    Let’s look at one of the assertion methods assertNull. Following is a test case that makes
+    use of all the overloaded assertNull methods:
+
+        @Test
+        void nullAssertionTest() {
+            String str = null;
+            assertNull(str);
+            assertNull(str, "str should be null");
+            assertNull(str, () -> "str should be null");
+        }
+
+
+    • In this case, the first assertNull checks that the value (i.e., str) is
+      null. If the value is not null then AssertionFailedError will be
+      thrown and the test will fail.
+
+    • The second overloaded method allows you to pass in a String
+      message that will be shown to the user when a test fails. It’s a
+      best practice to provide an error message for all your assertion
+      method calls.
+
+    • The third method makes use of Java 8 java.util.function.Supplier
+      functional interface. We passed it a lambda expression
+      that will generate the required message. The advantage of this
+      method is that failure message will be retrieved lazily from the
+      supplier only when an assertion fails. In case you are building a
+      complex message, then, by using a supplier, you will only pay the
+      cost if failure happens.
+
+
+    Junit Lifecycle annotations
+    ---------------------------------------------------------------------------------------
+
+    @BeforeAll
+
+        @BeforeAll annotation is responsible for performing a
+        single time initialization for all test cases in a class. The method must be static and
+        non-private. It is often used to create costly objects like database connection, which
+        can be reused for all the test cases. The work done in a BeforeAll can be moved to
+        BeforeEach, but since it is usually a computationally expensive operation, the overall test
+        execution can take much longer.
+
+    @BeforeEach
+
+        @BeforeEach annotation is responsible for performing any
+        initialization before executing a single test. The objects will be created for each test, thus
+        doing away with any side effects from other test executions.
+
+    @AfterEach
+
+        The @AfterEach annotation is the counterpart of the @BeforeEach annotation. A method marked with
+        @AfterEach is responsible for posttest execution cleanup. The method must be static and non-private.
+        The annotation also has an inherited behavior. If there are superclass methods or interface default methods
+        marked with @AfterEach, they will be executed after any such methods of the test class.
+
+    @AfterAll
+
+        The @AfterAll annotation is the counterpart of the @BeforeAll annotation. AfterAll performs a single time
+        method invocation (i.e., post the execution of all test cases of a test class). The method must be static and
+        non-private. The annotation also has an inherited behavior. If there are superclass methods
+        marked with @AfterAll they will be executed after any such methods of the test class.
