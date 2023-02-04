@@ -138,3 +138,27 @@ Homework:
     Define a addService() test, use assertEquals(xx, method(), "it should return xx") to test it.
     Define a multiplicationService() test, use assertEquals(xx, method(), () -> "it should return xx") to test it.
 
+
+
+2023-02-06 Lesson
+------------------------------------------------------------------------------------------------------------------------
+Topics:
+    Learn SQL Joins
+    Learn Java logging framework log4j
+
+Homework:
+    In the grouplearning.corejava.basics.collections package, define a HashMapDemo2 class.
+
+        .Declare property, private static final Logger log = LogManager.getLogger(HashMapDemo2.class);
+        .Define a main() method
+        .Define a HashMap<Integer, String> fruits  HashMap
+        .put below into fruits:
+            (1, "Apple")
+            (2, "Banana")
+            (3, "Orange")
+            (4, "Grapes")
+            (5, "Pineapple")
+        .Use forEach loop to loop through the fruits HashMap
+        .Use log.info() to display each fruit key and name
+
+
