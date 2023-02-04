@@ -19,6 +19,10 @@ public class GenericStack <T>{
         return top == -1;
     }
 
+    public int size() {
+        return top + 1;
+    }
+
     public void push ( T t) {
         if(! isStackFull()) {
             this.stackArray[++top] = t;
