@@ -123,7 +123,7 @@ Homework:
        We will practice SQL regularly from now on, until you feel very comfortable with it.
 
 
-2023-02-05 Lesson
+2023-02-06 Lesson
 ------------------------------------------------------------------------------------------------------------------------
 Topics:
     Learn SQL
