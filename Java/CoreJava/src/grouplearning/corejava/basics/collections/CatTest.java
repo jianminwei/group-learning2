@@ -33,4 +33,8 @@ public class CatTest {
             System.out.println(cat.toString());
         }
     }
+
+    //use stream.filter() for 2nd loop to add black cats to blackCat ArrayList
+    //use stream.forEach to print out black cats in blackCat ArrayList
+
 }
