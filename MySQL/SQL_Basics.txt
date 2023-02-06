@@ -3,8 +3,10 @@
 Relational Database fundamental
 --------------------------------------------------------------------------------------------------------------
 
-    In relational database, data is stored in Table. Table contains Columns. This tabular Table and Column format, is
-    the whole foundation for relational database. Each table has a name; and every column in a table also has a name.
+    In relational database, data is stored in Table. Table contains Rows and Columns. This tabular Row and Column
+    format, is the whole foundation for relational database.
+
+    Each table has a name; and every column in a table also has a name.
 
     Below is a sample table "City" data.
 
