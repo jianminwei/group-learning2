@@ -99,3 +99,42 @@ Homework:
         5. Use stream of blackCats ArrayList, and print out the cat age and cat color with forEach() in the stream.
 
     Run the CatTest when complete, you should see about 7 or 8 black cats printed out.
+
+2023-02-01 Lesson
+------------------------------------------------------------------------------------------------------------------------
+Topics:
+    Learn Maven
+    Java Junit testing
+
+Homework:
+
+    1.
+        Define Translate class and define a translate method that takes any lower case string, and return
+        the same string with all uppercase characters.
+
+        Create a test case to test the translate method. Pass it a lower case string, for example "good morning",
+        and assertEquals with expected value "GOOD MORNING".
+
+        Run the test case when complete.
+
+    2. Install Mysql to your PC or laptop. During the installation, it will ask what password you want for "root"
+       user id, use "Mysql#01". That way, our future connection configurations would be same.
+
+       We will practice SQL regularly from now on, until you feel very comfortable with it.
+
+
+2023-02-05 Lesson
+------------------------------------------------------------------------------------------------------------------------
+Topics:
+    Learn SQL
+    Junit Assertion method and overloading, Lifecycle annotations
+
+Homework:
+    A MathService class is already created for you. It is under grouplearning.corejava.junit5 package.
+
+    Create a test for grouplearning.corejava.junit5.MathService class. In the test class, use @BeforeEach
+    to instantiate the MathService class.
+
+    Define a addService() test, use assertEquals(xx, method(), "it should return xx") to test it.
+    Define a multiplicationService() test, use assertEquals(xx, method(), () -> "it should return xx") to test it.
+

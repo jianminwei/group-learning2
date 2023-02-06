@@ -1,0 +1,162 @@
+
+
+Relational Database fundamental
+--------------------------------------------------------------------------------------------------------------
+
+    In relational database, data is stored in Table. Table contains Columns. This tabular Table and Column format, is
+    the whole foundation for relational database. Each table has a name; and every column in a table also has a name.
+
+    Below is a sample table "City" data.
+
+        ID,     Name,               CountryCode,    District,       Population
+        -----   --------------      -------------   --------------  -----------
+        1,      Kabul,              AFG,            Kabol,          1780000
+        2,      Qandahar,           AFG,            Qandahar,       237500
+        3,      Herat,              AFG,            Herat,          186800
+        4,      Mazar-e-Sharif,     AFG,            Balkh,          127800
+        5,      Amsterdam,          NLD,            Noord-Holland,  731200
+        6,      Rotterdam,          NLD,            Zuid-Holland,   593321
+        7,      Haag,               NLD,            Zuid-Holland,   440900
+        8,      Utrecht,            NLD,            Utrecht,        234323
+        9,      Eindhoven,          NLD,            Noord-Brabant,  201843
+        10,     Tilburg,            NLD,            Noord-Brabant,  193238
+
+
+    In the future, whenever you think about relational database, you always think about this tabular format
+    in your mind. You can  use this City sample data as a concrete example, just think about it when you think
+    about relational database.
+
+
+DML (Data Manipulation Language) and DDL (Data Definition Language) Operations
+-------------------------------------------------------------------------------------------------------------
+    SQL is the language used in Relational Database.
+
+    In SQL, there are 2 types operations. They are DML and DDL.
+    DML is used for manipulating data. It has SELECT, INSERT, UPDATE, DELETE 4 types operations.
+    DDL is for defining Tables, Changing tables, adding constraints etc.
+
+    Your SQL skills are basically focused on DML. We will spend a lot of times to practice different kind of
+    DML operations. Among DML, SELECT is the most important and having the most variations. INSERT, UPDATE, DELETE
+    is quite simple to use.
+
+    DDL is also relatively simple and easy to use/remember.
+
+
+
+SELECT
+-------------------------------------------------------------------------------------------------------------
+
+    Sample SELECT queries:
+
+        SELECT name
+        FROM world.city;
+
+        SELECT name, countrycode
+        FROM world.city;
+
+        SELECT *
+        FROM world.city;
+
+        SELECT *
+        FROM world.city
+        WHERE countrycode = 'USA';
+
+        SELECT *
+        FROM world.city
+        WHERE countrycode = 'USA'
+          AND population > 1000000;
+
+        SELECT *
+        FROM world.city
+        WHERE name = 'New York';
+
+
+
+Common Data Types in MySQL
+----------------------------------------
+INT         A normal-size integer. The signed range is -2147483648 to 2147483647.
+BIGINT      A large integer. The signed range is -9223372036854775808 to 9223372036854775807.
+CHAR        The length of a CHAR column is fixed to the length that you declare when you create the table.
+            The length can be any value from 0 to 255. When CHAR values are stored, they are right-padded
+            with spaces to the specified length. When CHAR values are retrieved, trailing spaces are removed.
+VARCHAR     Values in VARCHAR columns are variable-length strings. The length can be specified as a value
+            from 0 to 65,535. The effective maximum length of a VARCHAR is subject to the maximum row
+            size (65,535 bytes, which is shared among all columns) and the character set used.
+
+DATE        The DATE type is used for values with a date part but no time part. MySQL retrieves and displays
+            DATE values in 'YYYY-MM-DD' format. The supported range is '1000-01-01' to '9999-12-31'.
+
+TIME        MySQL retrieves and displays TIME values in 'hh:mm:ss' format (or 'hhh:mm:ss' format for large
+            hours values). TIME values may range from '-838:59:59' to '838:59:59'. The hours part may be so
+            large because the TIME type can be used not only to represent a time of day
+            (which must be less than 24 hours), but also elapsed time or a time interval between
+            two events (which may be much greater than 24 hours, or even negative).
+
+
+DATETIME    The DATETIME type is used for values that contain both date and time parts. MySQL retrieves and displays
+            DATETIME values in 'YYYY-MM-DD hh:mm:ss' format. The supported range is '1000-01-01 00:00:00'
+            to '9999-12-31 23:59:59'.
+
+TIMESTAMP   The TIMESTAMP data type is used for values that contain both date and time parts. TIMESTAMP has a
+            range of '1970-01-01 00:00:01' UTC to '2038-01-19 03:14:07' UTC.
+
+            A DATETIME or TIMESTAMP value can include a trailing fractional seconds part in up to microseconds
+            (6 digits) precision. In particular, as of MySQL 5.6.4, any fractional part in a value inserted into
+            a DATETIME or TIMESTAMP column is stored rather than discarded. With the fractional part included,
+            the format for these values is 'YYYY-MM-DD hh:mm:ss[.fraction]', the range for DATETIME values
+            is '1000-01-01 00:00:00.000000' to '9999-12-31 23:59:59.999999', and the range for TIMESTAMP
+            values is '1970-01-01 00:00:01.000000' to '2038-01-19 03:14:07.999999'.
+
+
+
+
+
+
+DDL, Create tables and constraints
+----------------------------------------
+
+    1) Create Database
+
+        create database test;
+
+    2) Use Database. Use a database is to lock you in that database. So you don't have to use qualified name in SQLs.
+
+        use test;
+
+    3) Create table
+
+        a. Create a table with Primary Key.
+
+            CREATE TABLE parent (
+                id INT NOT NULL,
+                PRIMARY KEY (id)
+            ) ;
+
+        b. Create a table with Primary Key and Foreign Key.
+
+            CREATE TABLE child (
+                id INT,
+                parent_id INT,
+                PRIMARY KEY (id),
+                FOREIGN KEY (parent_id)
+                    REFERENCES parent(id)
+            );
+
+        c. Create table with Primary Key; then alter table to add Foreign Key.
+
+            CREATE TABLE parent2 (
+                id INT NOT NULL,
+                PRIMARY KEY (id)
+            ) ;
+
+            CREATE TABLE child2 (
+                id INT,
+                parent_id INT,
+                PRIMARY KEY (id)
+            );
+
+            ALTER TABLE child2
+            ADD constraint `child2_to_parent2`
+            FOREIGN KEY (parent_id)
+            REFERENCES parent2 (id);
+

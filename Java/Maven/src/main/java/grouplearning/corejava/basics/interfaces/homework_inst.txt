@@ -1,0 +1,8 @@
+
+1. Define a "Creature" interface. It has makeSound() method. This method return String.
+2. Define three different creature classes on earth. All of them need to implement the Creature interface.
+
+3. Do it in your own DEV branch.
+4. After done,
+    git co -b "Homework-branch"
+    git push -u origin "Homework-branch"

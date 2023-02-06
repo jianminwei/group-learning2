@@ -1,0 +1,13 @@
+
+Overloading is to define other methods with the same method name but with different
+number of arguments, or different argument types.
+
+Examples:
+
+public String move() {
+   return "move 1 meter";
+}
+
+public String move(int x) {
+   return "move " + x + " meters";
+}

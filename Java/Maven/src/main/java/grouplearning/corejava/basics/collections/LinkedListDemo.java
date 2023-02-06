@@ -1,6 +1,5 @@
 package grouplearning.corejava.basics.collections;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 
 public class LinkedListDemo {
