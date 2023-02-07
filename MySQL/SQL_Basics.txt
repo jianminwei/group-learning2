@@ -50,6 +50,8 @@ SELECT
 
     Sample SELECT queries:
 
+        USE WORLD;
+
         SELECT name
         FROM world.city;
 
@@ -72,7 +74,11 @@ SELECT
         FROM world.city
         WHERE name = 'New York';
 
-
+        SELECT *
+        FROM CITY
+        WHERE COUNTRYCODE LIKE 'A%'
+        ORDER BY COUNTRYCODE, POPULATION;
+        
 
 Common Data Types in MySQL
 ----------------------------------------

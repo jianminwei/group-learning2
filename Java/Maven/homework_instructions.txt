@@ -130,11 +130,19 @@ Topics:
     Junit Assertion method and overloading, Lifecycle annotations
 
 Homework:
-    A MathService class is already created for you. It is under grouplearning.corejava.junit5 package.
 
-    Create a test for grouplearning.corejava.junit5.MathService class. In the test class, use @BeforeEach
-    to instantiate the MathService class.
+    1.
 
-    Define a addService() test, use assertEquals(xx, method(), "it should return xx") to test it.
-    Define a multiplicationService() test, use assertEquals(xx, method(), () -> "it should return xx") to test it.
+        A MathService class is already created for you. It is under grouplearning.corejava.junit5 package.
+
+        Create a test for grouplearning.corejava.junit5.MathServiceTest class. In the test class, use @BeforeEach
+        to instantiate the MathService class.
+
+        Define a addService() test, use assertEquals(xx, method(), "it should return xx") to test it.
+        Define a multiplicationService() test, use assertEquals(xx, method(), () -> "it should return xx") to test it.
+
+    2.
+        Practice the SELECT SQLs in the SQL_Basics.txt.
+
+
 
