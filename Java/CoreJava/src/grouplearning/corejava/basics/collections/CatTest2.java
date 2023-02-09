@@ -22,17 +22,14 @@ public class CatTest2 {
 
             //2nd for loop checks if a cat has black color.  If it does, then it puts it into the blackCats array.
         }
-        for(Cat cat:cats){
-                cats.stream().filter(c -> c.getColor().equals("Black")).forEach(c -> blackCats.add(c));
-            }
 
-        //blackCats.forEach(e -> System.out.println(e));
-
-        }
+        cats.stream().filter(c -> c.getColor().equals("Black")).forEach(c -> blackCats.add(c));
 
         //3rd for loop goes through each element in blackCats array and prints out the cat color (black) and age (index number of array)
+        blackCats.forEach(e -> System.out.println(e));
 
     }
+}
 
     //use stream.filter() for 2nd loop to add black cats to blackCat ArrayList
     //use stream.forEach to print out black cats in blackCat ArrayList
