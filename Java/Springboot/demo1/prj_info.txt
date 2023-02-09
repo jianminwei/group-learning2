@@ -1,0 +1,301 @@
+
+How to create a Maven project:
+==============================
+
+1. Create an empty maven project by following
+
+    a) select menu  File -> New -> Project...
+    b) In the New Project window, select "Maven" from the left pane, and click Next button
+    c) Choose a folder in the Location: dropdown
+    d) Give a project name in the "Name:" input
+    e) Expend the "Artifact Coordinates"
+
+        For "GroupId:", fill anything you like, for example, org.grouplearning
+        For "ArtifactId:", fill anything you like, for example, java-logging
+        For "Version:" , you can keep the default, or you give any version you want.
+
+    f) Click Finish button. A new Maven project will be created.
+
+2). pom.xml (Project Object Model) is Maven file to manage the project dependencies and build info.
+
+3). Open pom.xml file, click any empty space under </properties>, type <, then hit Ctrl + Space, it should pop up
+    some option, select <dependencies>, and hit Tab key
+
+    Or you can simply type:
+
+        <dependencies>
+
+        </dependencies>
+
+4). Add following <dependency> within <dependencies>. You can use copy paste to add it. It should look like below when complete
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.5.2</version>
+            <scope>test</scope>
+        </dependency>
+
+5). Right click anywhere in the "pom.xml" editor, select "Maven", then "Reload Project" from the popup
+    menu. You should see the "junit" libraries on the left "Project Pane" under "External Libraries".
+
+
+6)  Note: After copy/paste all the grouplearning corejava code here. I have to do a Maven clean and compile. Otherwise
+    runtime error.
+
+
+
+
+Junit Assertion Methods
+==============================
+
+    Assert Method           What It Does
+    -------------           -------------------------------------------------------
+    assertTrue              Assert that condition is true
+    assertFalse             Assert that condition is false
+    assertNull              Assert that object is null
+    assertNotNull           Assert that object is not null
+    assertEquals            Assert that expected and actual are equal
+    assertNotEquals         Assert that expected and actual are not equal
+    assertArrayEquals       Assert that expected and actual arrays are equals
+    assertSame              Assert that expected and actual refer to the same object
+    assertNotSame           Assert that expected and actual do not refer to the same object
+
+
+
+    Assert Method Overloading
+    ---------------------------------------------------------------------------------------
+
+    Each assertXXX method above provided by JUnit has at least three overloaded methods.
+    Let’s look at one of the assertion methods assertNull. Following is a test case that makes
+    use of all the overloaded assertNull methods:
+
+        @Test
+        void nullAssertionTest() {
+            String str = null;
+            assertNull(str);
+            assertNull(str, "str should be null");
+            assertNull(str, () -> "str should be null");
+        }
+
+
+    • In this case, the first assertNull checks that the value (i.e., str) is
+      null. If the value is not null then AssertionFailedError will be
+      thrown and the test will fail.
+
+    • The second overloaded method allows you to pass in a String
+      message that will be shown to the user when a test fails. It’s a
+      best practice to provide an error message for all your assertion
+      method calls.
+
+    • The third method makes use of Java 8 java.util.function.Supplier
+      functional interface. We passed it a lambda expression
+      that will generate the required message. The advantage of this
+      method is that failure message will be retrieved lazily from the
+      supplier only when an assertion fails. In case you are building a
+      complex message, then, by using a supplier, you will only pay the
+      cost if failure happens.
+
+
+    Junit Lifecycle annotations
+    ---------------------------------------------------------------------------------------
+
+    @BeforeAll
+
+        @BeforeAll annotation is responsible for performing a
+        single time initialization for all test cases in a class. The method must be static and
+        non-private. It is often used to create costly objects like database connection, which
+        can be reused for all the test cases. The work done in a BeforeAll can be moved to
+        BeforeEach, but since it is usually a computationally expensive operation, the overall test
+        execution can take much longer.
+
+    @BeforeEach
+
+        @BeforeEach annotation is responsible for performing any
+        initialization before executing a single test. The objects will be created for each test, thus
+        doing away with any side effects from other test executions.
+
+    @AfterEach
+
+        The @AfterEach annotation is the counterpart of the @BeforeEach annotation. A method marked with
+        @AfterEach is responsible for posttest execution cleanup. The method must be static and non-private.
+        The annotation also has an inherited behavior. If there are superclass methods or interface default methods
+        marked with @AfterEach, they will be executed after any such methods of the test class.
+
+    @AfterAll
+
+        The @AfterAll annotation is the counterpart of the @BeforeAll annotation. AfterAll performs a single time
+        method invocation (i.e., post the execution of all test cases of a test class). The method must be static and
+        non-private. The annotation also has an inherited behavior. If there are superclass methods
+        marked with @AfterAll they will be executed after any such methods of the test class.
+
+
+
+Java Logging
+===========================================
+    Logging is an important part of any application development. There are often many application modules in
+    each application. You use logging to log some messages to console or log file to see how application behaves
+    at runtime. Logging is especially important during the development phase. It is also important in production
+    environment for troubleshooting's.
+
+    Log4j is the earliest Java logging framework. There are other logging frameworks today. But they are all very
+    similar. You learn one, you know all. We use the latest version log4j2.
+
+
+Log4j Maven dependencies
+-------------------------
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.19.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.19.0</version>
+        </dependency>
+
+
+Log4j configuration log4j2.xml
+----------------------------------
+    You create a log4j2.xml file to config log4j, and put the file under resources folder.
+    Below is our config file.
+
+
+        <?xml version="1.0" encoding="UTF-8"?>
+        <Configuration>
+            <Appenders>
+                <File name="A1" fileName="A1.log" append="true">
+                    <PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n"/>
+                </File>
+                <Console name="STDOUT" target="SYSTEM_OUT">
+                    <PatternLayout pattern="%d %-5p [%t] %C{2} (%F:%L) - %m%n"/>
+                </Console>
+            </Appenders>
+            <Loggers>
+                <Logger name="grouplearning.corejava" level="warn">
+                    <AppenderRef ref="A1"/>
+                    <AppenderRef ref="STDOUT"/>
+                </Logger>
+                <Root level="error">
+                </Root>
+            </Loggers>
+        </Configuration>
+
+
+
+Log4j key concepts
+-------------------
+
+    a. Appender
+
+        Appender is where you define the media (console, file) for the logging output.
+
+    b. Logger
+
+        Logger iw where you define what Appender to write the logging; and what log level to use.
+
+    c. Log Level
+
+        Log level has 6 levels from TRACE to FATAL (see below). TRACE is the lowest level, and FATAL
+        is the highest level.
+
+        The levels have precedence. The higher levels log messages will be displayed in lower log levels;
+        but lower level log messages not displayed at higher log levels.
+
+
+Log4j Log Level
+------------------
+    FATAL
+    ERROR
+    WARN
+    INFO
+    DEBUG
+    TRACE
+
+
+Log4j2 Pattern Conversion Characters
+-------------------------------------
+The following table explains the characters used in the above pattern and all other characters that you can use in your custom pattern:
+
+    Conversion Character	Meaning
+    c	Used to output the category of the logging event. For example, for the category name "a.b.c" the pattern %c{2} will output "b.c".
+    C	Used to output the fully qualified class name of the caller issuing the logging request. For example, for the class name "org.apache.xyz.SomeClass", the pattern %C{1} will output "SomeClass".
+    d	Used to output the date of the logging event. For example, %d{HH:mm:ss,SSS} or %d{dd MMM yyyy HH:mm:ss,SSS}.
+    F	Used to output the file name where the logging request was issued.
+    l	Used to output location information of the caller which generated the logging event.
+    L	Used to output the line number from where the logging request was issued.
+    m	Used to output the application supplied message associated with the logging event.
+    M	Used to output the method name where the logging request was issued.
+    n	Outputs the platform dependent line separator character or characters.
+    p	Used to output the priority of the logging event.
+    r	Used to output the number of milliseconds elapsed from the construction of the layout until the creation of the logging event.
+    t	Used to output the name of the thread that generated the logging event.
+    x	Used to output the NDC (nested diagnostic context) associated with the thread that generated the logging event.
+    X	The X conversion character is followed by the key for the MDC. For example, X{clientIP} will print the information stored in the MDC against the key clientIP.
+    %	The literal percent sign. %% will print a % sign.
+
+
+
+Spring Boot Framework
+=======================
+    Spring Boot Framework is the most popular framework in the Java world. In reality, most companies use Spring Boot
+    framework when they build enterprise applications.
+
+    The framework has huge selections of sub-components. At the core of the framework, it provides Dependency Injection
+    container (or application context) management.
+
+    Depending on your needs, you can configure your application to add whatever the sub-components you want, like Web,
+    JDBC, JPA, etc. Or you can just start with no other sub-components at all. You can simply just use Dependency
+    Injection container management if your application is very small.
+
+    By default, Spring Boot has the java logging built-in.
+
+
+    Spring Boot Demo1 project
+    ----------------------------
+    In this project, we are going to configure the smallest Spring Boot application with no other components at all.
+    It simply has the core Dependency Injection container with built-in logging.
+
+        a.
+            Go to https://start.spring.io/ to initialize a Spring Boot project. Select the options illustrated by
+            Springboot_initializr_options.PNG screenshot.
+
+        b.
+            Copy the generated zip file into a folder, unzip it. Use IntelliJ to open the project.
+
+            Inspect the project folder structures.
+
+            Run the Demo1Application. This will run and exit successfully. The application contains nothing. It simply
+            initializes the Dependency Injection container and exit. It doesn't have anything in the container yet.
+
+        c.  Test the built-in logging.
+
+            In the application.properties file, add following to control the logging level:
+
+                logging.level.grouplearning.springboot.demo1=WARN
+
+            Demo1Application class is the bootstrap class in Spring Boot. That's where the application start to run.
+
+                Add property: 	private static final Logger log = LoggerFactory.getLogger(Demo1Application.class);
+
+                Add "implements CommandLineRunner" to the class and define the run() method:
+
+                    @Override
+                    public void run(String... args) throws Exception {
+                        log.trace("log trace");
+                        log.debug("log debug");
+                        log.info("log info");
+                        log.warn("log warn");
+                        log.error("log error");
+                    }
+
+            Adjusting the logging level in application.properties file and run the application again. Adjust it again
+            and run it again until you feel very comfortable with it.
+
+        d. Define Person class, let Spring manage it (add @Component annotation), and inject it to Demo1Application
+            class, use log to display the person.
+
+        e. Define Shirt, Shoe and inject them to Person, run the application and see the log.
+
