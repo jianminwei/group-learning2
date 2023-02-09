@@ -3,10 +3,15 @@
 Relational Database fundamental
 --------------------------------------------------------------------------------------------------------------
 
+<<<<<<< HEAD
     In relational database, data is stored in Table. Table contains Rows and Columns. This tabular Row and Column
     format, is the whole foundation for relational database.
 
     Each table has a name; and every column in a table also has a name.
+=======
+    In relational database, data is stored in Table. Table contains Columns. This tabular Table and Column format, is
+    the whole foundation for relational database. Each table has a name; and every column in a table also has a name.
+>>>>>>> DEV-02-06
 
     Below is a sample table "City" data.
 
@@ -31,7 +36,11 @@ Relational Database fundamental
 
 DML (Data Manipulation Language) and DDL (Data Definition Language) Operations
 -------------------------------------------------------------------------------------------------------------
+<<<<<<< HEAD
     SQL is the language used in Relational Database.
+=======
+    SQL is the language used in Relational Database. SQL is not case-sensitive.
+>>>>>>> DEV-02-06
 
     In SQL, there are 2 types operations. They are DML and DDL.
     DML is used for manipulating data. It has SELECT, INSERT, UPDATE, DELETE 4 types operations.
@@ -48,9 +57,13 @@ DML (Data Manipulation Language) and DDL (Data Definition Language) Operations
 SELECT
 -------------------------------------------------------------------------------------------------------------
 
+<<<<<<< HEAD
     Sample SELECT queries:
 
         USE WORLD;
+=======
+    1. Simple SELECT queries:
+>>>>>>> DEV-02-06
 
         SELECT name
         FROM world.city;
@@ -74,11 +87,89 @@ SELECT
         FROM world.city
         WHERE name = 'New York';
 
+<<<<<<< HEAD
         SELECT *
         FROM CITY
         WHERE COUNTRYCODE LIKE 'A%'
         ORDER BY COUNTRYCODE, POPULATION;
         
+=======
+        Note: The Criteria after the WHERE key word is often called WHERE Clause.
+
+    2. Join other tables
+
+        Join Tables:
+
+            SELECT A.ID,
+                A.NAME as City_name,
+                A.CountryCode,
+                A.District,
+                A.Population,
+                B.Name AS Country_name
+            FROM world.city A
+            JOIN world.country B
+              ON A.CountryCode = B.Code;
+
+        Join Tables with WHERE Clause:
+
+            SELECT A.ID,
+                A.NAME as City_name,
+                A.CountryCode,
+                A.District,
+                A.Population,
+                B.Name AS Country_name
+            FROM world.city A
+            JOIN world.country B
+              ON A.CountryCode = B.Code
+
+            WHERE A.CountryCode = 'USA'  ;
+
+
+        Join Tables with WHERE Clause and ORDER BY Clause:
+
+            SELECT A.ID,
+                A.NAME as City_name,
+                A.CountryCode,
+                A.District,
+                A.Population,
+                B.Name AS Country_name
+            FROM world.city A
+            JOIN world.country B
+              ON A.CountryCode = B.Code
+
+            WHERE A.CountryCode = 'USA'
+
+            ORDER BY A.District;
+
+
+            SELECT A.ID,
+                A.NAME as City_name,
+                A.CountryCode,
+                A.District,
+                A.Population,
+                B.Name AS Country_name
+            FROM world.city A
+            JOIN world.country B
+              ON A.CountryCode = B.Code
+
+            WHERE A.CountryCode = 'USA'
+
+            ORDER BY A.District, A.Name;
+
+
+        Note:
+            a. SQL is not case-sensitive.
+            b. When you join tables, you often give a table an alias name.
+            c. You have to use qualified column names (table alias name plus column name)
+               when joined tables contain the same column name. You can always use qualified column names
+               regardless the tables contains same column names or not.
+            d. You can give a column a more meaningful alias name if needed.
+            e. You can have a WHERE clause to filter out result set.
+            f. You can use an ORDER BY clause to order your result set.
+
+
+
+>>>>>>> DEV-02-06
 
 Common Data Types in MySQL
 ----------------------------------------

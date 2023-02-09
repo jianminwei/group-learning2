@@ -10,7 +10,11 @@ class GenericStackTest {
 
     @BeforeEach
     void init() {
+<<<<<<< HEAD
         stack = new GenericStack<Integer>(100);
+=======
+        stack = new GenericStack<>(100);
+>>>>>>> DEV-02-06
     }
 
     @Test
