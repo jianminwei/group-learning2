@@ -127,9 +127,6 @@ Junit Assertion Methods
         The @AfterAll annotation is the counterpart of the @BeforeAll annotation. AfterAll performs a single time
         method invocation (i.e., post the execution of all test cases of a test class). The method must be static and
         non-private. The annotation also has an inherited behavior. If there are superclass methods
-<<<<<<< HEAD
-        marked with @AfterAll they will be executed after any such methods of the test class.
-=======
         marked with @AfterAll they will be executed after any such methods of the test class.
 
 

@@ -3,15 +3,12 @@
 Relational Database fundamental
 --------------------------------------------------------------------------------------------------------------
 
-<<<<<<< HEAD
+
     In relational database, data is stored in Table. Table contains Rows and Columns. This tabular Row and Column
     format, is the whole foundation for relational database.
 
     Each table has a name; and every column in a table also has a name.
-=======
-    In relational database, data is stored in Table. Table contains Columns. This tabular Table and Column format, is
-    the whole foundation for relational database. Each table has a name; and every column in a table also has a name.
->>>>>>> DEV-02-06
+
 
     Below is a sample table "City" data.
 
@@ -36,11 +33,10 @@ Relational Database fundamental
 
 DML (Data Manipulation Language) and DDL (Data Definition Language) Operations
 -------------------------------------------------------------------------------------------------------------
-<<<<<<< HEAD
-    SQL is the language used in Relational Database.
-=======
+
+
     SQL is the language used in Relational Database. SQL is not case-sensitive.
->>>>>>> DEV-02-06
+
 
     In SQL, there are 2 types operations. They are DML and DDL.
     DML is used for manipulating data. It has SELECT, INSERT, UPDATE, DELETE 4 types operations.
@@ -57,13 +53,13 @@ DML (Data Manipulation Language) and DDL (Data Definition Language) Operations
 SELECT
 -------------------------------------------------------------------------------------------------------------
 
-<<<<<<< HEAD
+
     Sample SELECT queries:
 
         USE WORLD;
-=======
+
     1. Simple SELECT queries:
->>>>>>> DEV-02-06
+
 
         SELECT name
         FROM world.city;
@@ -87,13 +83,13 @@ SELECT
         FROM world.city
         WHERE name = 'New York';
 
-<<<<<<< HEAD
+
         SELECT *
         FROM CITY
         WHERE COUNTRYCODE LIKE 'A%'
         ORDER BY COUNTRYCODE, POPULATION;
         
-=======
+
         Note: The Criteria after the WHERE key word is often called WHERE Clause.
 
     2. Join other tables
@@ -168,8 +164,6 @@ SELECT
             f. You can use an ORDER BY clause to order your result set.
 
 
-
->>>>>>> DEV-02-06
 
 Common Data Types in MySQL
 ----------------------------------------
