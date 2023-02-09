@@ -54,9 +54,9 @@ SELECT
 -------------------------------------------------------------------------------------------------------------
 
 
-    Sample SELECT queries:
-
-        USE WORLD;
+      USE WORLD;                        /* To lock WORLD database as your current database,
+                                        so you don't need to use the fully qualified name
+                                        for tables */
 
     1. Simple SELECT queries:
 
@@ -64,24 +64,29 @@ SELECT
         SELECT name
         FROM world.city;
 
-        SELECT name, countrycode
-        FROM world.city;
+        SELECT name
+        FROM city;                      /* not use qualified table name */
+
+
+        SELECT name, countrycode        /* SELECT name, countrycode is called SELECT list */
+        FROM city;
 
         SELECT *
         FROM world.city;
 
         SELECT *
-        FROM world.city
-        WHERE countrycode = 'USA';
+        FROM city
+        WHERE countrycode = 'USA';      /* WHERE countrycode = 'USA' is called WHERE clause */
 
         SELECT *
-        FROM world.city
-        WHERE countrycode = 'USA'
+        FROM city
+        WHERE countrycode = 'USA'       /* You can have multiple criterias */
           AND population > 1000000;
 
         SELECT *
-        FROM world.city
-        WHERE name = 'New York';
+        FROM city
+        WHERE countrycode = 'USA'       /* You can use AND or OR in the WHERE clause */
+          OR  population > 1000000;
 
 
         SELECT *
@@ -162,6 +167,19 @@ SELECT
             d. You can give a column a more meaningful alias name if needed.
             e. You can have a WHERE clause to filter out result set.
             f. You can use an ORDER BY clause to order your result set.
+
+    3. SQL wildcard
+
+        %                       any 1 or multiple characters
+        _                       any 1 characters
+
+        WHERE name LIKE 'a%'	Finds any values that starts with "a"
+        WHERE name LIKE '%a'	Finds any values that ends with "a"
+        WHERE name LIKE '%or%'	Finds any values that have "or" in any position
+        WHERE name LIKE '_r%'	Finds any values that have "r" in the second position
+        WHERE name LIKE 'a__%'	Finds any values that starts with "a" and are at least 3 characters in length
+        WHERE name LIKE 'a%o'	Finds any values that starts with "a" and ends with "o"
+
 
 
 
