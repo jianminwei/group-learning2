@@ -10,3 +10,9 @@ out/
 
 ### ignore maven target folder
 target/
+mvnw
+mvnw.*
+.mvn/
+
+### misc files
+*.zip
