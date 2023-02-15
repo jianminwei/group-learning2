@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface AnimalRepository extends JpaRepository <Animal, Long>{
 
-    public Animal findByName(String name);
-    public List<Animal> findByNameContaining(String name);
+    public Animal findByAnimalName(String name);
+    public Animal findFirstByAnimalName(String name);
+    public List<Animal> findByAnimalNameContaining(String name);
 }

@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
+
 public class Animal {
 
     @Id
@@ -14,9 +15,12 @@ public class Animal {
     private Long id;
 
     @Column(name = "animal_name")
-    private String name;
+    private String animalName;
 
     private int age;
+
+    @Column(name = "description")
+    private String description;
 
     @ManyToOne
     @JoinColumn(name = "animal_type_id")

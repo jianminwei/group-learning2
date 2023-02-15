@@ -25,14 +25,16 @@ class AnimalRepositoryTest {
     @Test
     void findByName() {
 
-        Animal c = animalRepo.findByName("Cat8");
+        Animal c = animalRepo.findFirstByAnimalName("Charlie");
 
-        log.info(c.toString());
+        if(c != null) {
+            log.info(c.toString());
+        }
     }
 
     @Test
     void findByNameContain() {
-        List<Animal> animals = animalRepo.findByNameContaining("Cat1");
+        List<Animal> animals = animalRepo.findByAnimalNameContaining("Ch");
 
         animals.forEach(c -> log.info(c.toString()));
     }

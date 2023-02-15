@@ -9,6 +9,7 @@ import grouplearning.springboot.datajpa.repository.AnimalTypeRepository;
 import grouplearning.springboot.datajpa.repository.RegionRepository;
 import grouplearning.springboot.datajpa.repository.ZooRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -32,12 +33,20 @@ public class InitData {
     @Autowired
     AnimalRepository animalRepo;
 
+    @Value("${grouplearning.springboot.datajpa.init-data}")
+    private boolean mockupData;
+
+    @Value("${grouplearning.springboot.datajpa.number-of-animals}")
+    private int numOfAnimals;
+
     @PostConstruct
     private void initData() {
-        insertRegions();
-        insertZoos();
-        insertAnimalTypes();
-        insertAnimals();
+        if(mockupData) {
+            insertRegions();
+            insertZoos();
+            insertAnimalTypes();
+            insertAnimals();
+        }
     }
 
     private void insertRegions() {
@@ -83,7 +92,6 @@ public class InitData {
         Zoo n4 = new Zoo(); n4.setName("Chicago Zoological Park"); n4.setRegion(northRegion); zooRepo.save(n4);
         Zoo n5 = new Zoo(); n5.setName("Indianapolis Zoo"); n5.setRegion(northRegion); zooRepo.save(n5);
         Zoo n6 = new Zoo(); n6.setName("Cincinnati Zoo"); n6.setRegion(northRegion); zooRepo.save(n6);
-
     }
 
     private void insertAnimalTypes() {
@@ -108,8 +116,6 @@ public class InitData {
         AnimalType deer = new AnimalType(); deer.setName("Deer"); animalTypeRepo.save(deer);
         AnimalType rabbit = new AnimalType(); rabbit.setName("Rabbit"); animalTypeRepo.save(rabbit);
         AnimalType fish = new AnimalType(); fish.setName("Fish"); animalTypeRepo.save(fish);
-
-        //Panda
     }
 
     private void insertAnimals() {
@@ -118,23 +124,22 @@ public class InitData {
 
         Random random = new Random();
 
-        int numOfAnimals = 1000;
-
         for( int i = 0; i < numOfAnimals; i++) {
             Animal animal = new Animal();
-            Zoo zoo = zooRepo.findById(1 + random.nextLong(zooCount -1)).orElseThrow(()-> new NoResultException());
-            AnimalType animalType = animalTypeRepo.findById(1 + random.nextLong(animalTypeCount - 1)).orElseThrow(()-> new NoResultException());
+            Zoo zoo = zooRepo.findById(1 + random.nextLong(zooCount)).orElseThrow(()-> new NoResultException());
+            AnimalType animalType = animalTypeRepo.findById(1 + random.nextLong(animalTypeCount)).orElseThrow(()-> new NoResultException());
 
-            animal.setName(getRandomName());
+            animal.setAnimalName(getRandomName());
             animal.setAge(1 + random.nextInt(50));
             animal.setAnimalType(animalType);
             animal.setZoo(zoo);
+            animal.setDescription(animal.getAnimalName() + " is a " + animal.getAnimalType().getName() + " living in " + animal.getZoo().getName());
 
             animalRepo.save(animal);
         }
     }
 
-    private static String arr[] = new String[] {
+    private static String names[] = new String[] {
             "Bailey", "Bella", "Max", "Lucy", "Charlie", "Molly", "Buddy", "Daisy", "Rocky", "Maggie", "Jake",
             "Sophie", "Jack", "Sadie", "Toby", "Chloe", "Cody", "Bailey", "Buster", "Lola", "Duke", "Zoe",
             "Cooper", "Abby", "Riley", "Ginger", "Harley", "Roxy", "Bear", "Gracie", "Tucker", "Coco", "Murphy",
@@ -146,7 +151,7 @@ public class InitData {
             "Pepper", "Maximus", "Heidi", "Romeo", "Luna", "Boomer", "Dixie", "Luke", "Honey", "Henry", "Dakota"
     };
 
-    private static List<String> animalNames = Arrays.asList(arr);
+    private static List<String> animalNames = Arrays.asList(names);
 
     private static String getRandomName() {
         Random random = new Random();

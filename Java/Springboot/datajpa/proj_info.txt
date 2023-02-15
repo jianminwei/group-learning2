@@ -1,0 +1,126 @@
+
+1. Spring Data JPA uses "Query Method Name" to derive the underneath SQL. See below docs link:
+
+    https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods
+
+2. Your repository extends JpaRepository. By doing this, you already have the most common
+    useful operations, like findAll(), count(), save(), delete() etc.
+
+    public interface RegionRepository extends JpaRepository<Region, Long>
+
+3. SQL queries you can run in the GLDB database after the data is populated by this application.
+
+    use gldb;
+
+    /** Select all the information by joining 4 tables */
+        select a.animal_id, a.age, a.animal_name, at.animal_type_name, z.zoo_name, r.region_name
+        from animal A
+        join zoo z
+        on a.zoo_id = z.zoo_id
+
+        join animal_type at
+        on a.animal_type_id = at.animal_type_id
+
+        join region r
+        on z.region_id = r.region_id;
+
+    /** Select the animal count by zoo_id and zoo_name */
+        select z.zoo_id, z.zoo_name, count(a.animal_id)
+        from zoo z
+        join animal a
+        on z.zoo_id = a.zoo_id
+
+        group by z.zoo_id, z.zoo_name
+        order by z.zoo_id, z.zoo_name;
+
+    /** select the animal count by animal_type_id and animal_type_name
+        select z.animal_type_id, z.animal_type_name, count(distinct a.animal_id)
+        from animal_type z
+        join animal a
+        on z.animal_type_id = a.animal_type_id
+
+        group by z.animal_type_id, z.animal_type_name
+        order by z.animal_type_id, z.animal_type_name;
+
+    /** Count number of animals by Zoo and Region */
+        select r.region_name, z.zoo_name,  count(distinct a.animal_id)
+        from animal A
+        join zoo z
+        on a.zoo_id = z.zoo_id
+
+        join region r
+        on z.region_id = r.region_id
+
+        group by r.region_name, z.zoo_name
+        order by r.region_name, z.zoo_name;
+
+    /** Count number of Dogs by Zoo and Region */
+        select r.region_name, z.zoo_name,  count(distinct a.animal_id)
+        from animal A
+        join zoo z
+        on a.zoo_id = z.zoo_id
+
+        join region r
+        on z.region_id = r.region_id
+
+        join animal_type at
+        on a.animal_type_id = at.animal_type_id
+
+        where at.animal_type_name = 'Dog'
+
+        group by r.region_name, z.zoo_name
+        order by r.region_name, z.zoo_name;
+
+    /** Select the Zoo that have more than 50 animals **/
+        select r.region_name, z.zoo_name,  count(distinct a.animal_id)
+        from animal A
+        join zoo z
+        on a.zoo_id = z.zoo_id
+
+        join region r
+        on z.region_id = r.region_id
+
+        group by r.region_name, z.zoo_name
+
+        having count(distinct a.animal_id) > 50
+
+        order by r.region_name, z.zoo_name;
+
+    /** Count number of animals by Region **/
+        select r.region_name, count(distinct a.animal_id)
+        from animal A
+        join zoo z
+        on a.zoo_id = z.zoo_id
+
+        join region r
+        on z.region_id = r.region_id
+
+        group by r.region_name
+
+        order by r.region_name;
+
+
+    /** Select Max animal age in each Zoo **/
+
+        select r.region_name, z.zoo_name,  Max(a.age)
+        from animal A
+        join zoo z
+        on a.zoo_id = z.zoo_id
+
+        join region r
+        on z.region_id = r.region_id
+
+        group by r.region_name, z.zoo_name
+        order by r.region_name, z.zoo_name;
+
+    /** Select Average animal age in each Zoo **/
+        select r.region_name, z.zoo_name,  Avg(a.age)
+        from animal A
+        join zoo z
+        on a.zoo_id = z.zoo_id
+
+        join region r
+        on z.region_id = r.region_id
+
+        group by r.region_name, z.zoo_name
+        order by r.region_name, z.zoo_name;
