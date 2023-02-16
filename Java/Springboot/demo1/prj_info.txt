@@ -299,3 +299,25 @@ Spring Boot Framework
 
         e. Define Shirt, Shoe and inject them to Person, run the application and see the log.
 
+
+     Spring Boot Important Features
+     ==============================
+
+     1. Dependency Injection
+
+        The most important feature of Spring is the Spring Application Context. It is an Object Container that initialize
+        all the classes that annotated with annotations and put them in the Application Context. You can then use the
+        objects throughout your application by inject them with @Autowired annotation.
+
+     2. Spring Boot comes with built-in logging. You don't need to configure anything and just use it out of the gate.
+
+     3. Spring Boot comes with Junit testing configuration. You don't need to do anything and just use it.
+
+     4. Spring configuration "application.properties" can contain any application config info and be used throughout
+        your application. For example:
+
+            @Value("${shirt.color}")
+            private String color;
+
+     5. Spring has JDBC template, JPA, Web REST API features that we are going to learn. These features make building
+        a Web Server very easy.
