@@ -36,6 +36,9 @@ public class InitData {
     @Value("${grouplearning.springboot.datajpa.init-data}")
     private boolean mockupData;
 
+    @Value("${grouplearning.springboot.datajpa.add-more-zoo}")
+    private boolean addMoreZoo;
+
     @Value("${grouplearning.springboot.datajpa.number-of-animals}")
     private int numOfAnimals;
 
@@ -66,32 +69,40 @@ public class InitData {
         Zoo z1 = new Zoo(); z1.setName("Bronx Zoo, Bronx"); z1.setRegion(eastRegion); zooRepo.save(z1);
         Zoo z2 = new Zoo(); z2.setName("National Zoological Park, Washington DC"); z2.setRegion(eastRegion); zooRepo.save(z2);
         Zoo z3 = new Zoo(); z3.setName("Philadelphia Zoo"); z3.setRegion(eastRegion); zooRepo.save(z3);
-        Zoo z4 = new Zoo(); z4.setName("Columbus Zoo"); z4.setRegion(eastRegion); zooRepo.save(z4);
-        Zoo z5 = new Zoo(); z5.setName("Brevard Zoo"); z5.setRegion(eastRegion); zooRepo.save(z5);
-        Zoo z6 = new Zoo(); z6.setName("Six Flags Wild Safari, NJ"); z6.setRegion(eastRegion); zooRepo.save(z6);
 
         Region southRegion = regionRepo.findByName("South Region");
         Zoo s1 = new Zoo(); s1.setName("McCarthy's Wildlife, West Palm Beach"); s1.setRegion(southRegion); zooRepo.save(s1);
         Zoo s2 = new Zoo(); s2.setName("Zoo Miami, Miami"); s2.setRegion(southRegion); zooRepo.save(s2);
         Zoo s3 = new Zoo(); s3.setName("Denver Zoo"); s3.setRegion(southRegion); zooRepo.save(s3);
-        Zoo s4 = new Zoo(); s4.setName("Fort Worth Zoo"); s4.setRegion(southRegion); zooRepo.save(s4);
-        Zoo s5 = new Zoo(); s5.setName("Cheyenne Mountain Zoo"); s5.setRegion(southRegion); zooRepo.save(s5);
-        Zoo s6 = new Zoo(); s6.setName("Audubon Zoo"); s6.setRegion(southRegion); zooRepo.save(s6);
-        Zoo s7 = new Zoo(); s7.setName("Lion Country Safari, Florida"); s7.setRegion(southRegion); zooRepo.save(s7);
+
 
         Region westRegion = regionRepo.findByName("West Region");
         Zoo w1 = new Zoo(); w1.setName("Oakland Zoo"); w1.setRegion(westRegion); zooRepo.save(w1);
         Zoo w2 = new Zoo(); w2.setName("San Diego Zoo and Safari Park"); w2.setRegion(westRegion); zooRepo.save(w2);
         Zoo w3 = new Zoo(); w3.setName("Woodland Park Zoo"); w3.setRegion(westRegion); zooRepo.save(w3);
-        Zoo w4 = new Zoo(); w4.setName("The Living Desert Zoo"); w4.setRegion(westRegion); zooRepo.save(w4);
 
         Region northRegion = regionRepo.findByName("North Region");
         Zoo n1 = new Zoo(); n1.setName("Saint Louis Zoo"); n1.setRegion(northRegion); zooRepo.save(n1);
         Zoo n2 = new Zoo(); n2.setName("Alaska Zoo"); n2.setRegion(northRegion); zooRepo.save(n2);
         Zoo n3 = new Zoo(); n3.setName("Bear Country USA, South Dakota"); n3.setRegion(northRegion); zooRepo.save(n3);
-        Zoo n4 = new Zoo(); n4.setName("Chicago Zoological Park"); n4.setRegion(northRegion); zooRepo.save(n4);
-        Zoo n5 = new Zoo(); n5.setName("Indianapolis Zoo"); n5.setRegion(northRegion); zooRepo.save(n5);
-        Zoo n6 = new Zoo(); n6.setName("Cincinnati Zoo"); n6.setRegion(northRegion); zooRepo.save(n6);
+
+        if (this.addMoreZoo) {
+            Zoo z4 = new Zoo(); z4.setName("Columbus Zoo"); z4.setRegion(eastRegion); zooRepo.save(z4);
+            Zoo z5 = new Zoo(); z5.setName("Brevard Zoo"); z5.setRegion(eastRegion); zooRepo.save(z5);
+            Zoo z6 = new Zoo(); z6.setName("Six Flags Wild Safari, NJ"); z6.setRegion(eastRegion); zooRepo.save(z6);
+
+            Zoo s4 = new Zoo(); s4.setName("Fort Worth Zoo"); s4.setRegion(southRegion); zooRepo.save(s4);
+            Zoo s5 = new Zoo(); s5.setName("Cheyenne Mountain Zoo"); s5.setRegion(southRegion); zooRepo.save(s5);
+            Zoo s6 = new Zoo(); s6.setName("Audubon Zoo"); s6.setRegion(southRegion); zooRepo.save(s6);
+            Zoo s7 = new Zoo(); s7.setName("Lion Country Safari, Florida"); s7.setRegion(southRegion); zooRepo.save(s7);
+
+            Zoo w4 = new Zoo(); w4.setName("The Living Desert Zoo"); w4.setRegion(westRegion); zooRepo.save(w4);
+
+            Zoo n4 = new Zoo(); n4.setName("Chicago Zoological Park"); n4.setRegion(northRegion); zooRepo.save(n4);
+            Zoo n5 = new Zoo(); n5.setName("Indianapolis Zoo"); n5.setRegion(northRegion); zooRepo.save(n5);
+            Zoo n6 = new Zoo(); n6.setName("Cincinnati Zoo"); n6.setRegion(northRegion); zooRepo.save(n6);
+        }
+
     }
 
     private void insertAnimalTypes() {
