@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "713bff4c-1724-4bcd-8433-35edfa428b40",
+		"name": "Cat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1333760"
+	},
+	"item": [
+		{
+			"name": "get all cats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cats",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cats"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get cat by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cats/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cats",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update cat by id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"id\": 2,\r\n        \"name\": \"Angela\",\r\n        \"age\": 20\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cats/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cats",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete cat by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cats/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cats",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
